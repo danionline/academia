@@ -1,7 +1,11 @@
 package academia.modelo.dao;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.naming.NamingException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -20,7 +24,7 @@ import academia.modelo.pojo.Profesores;
  * @author dani
  *
  */
-public class CursoDaoImpl implements CursoDao {
+public final class CursoDaoImpl implements CursoDao {
 	
 
 
@@ -42,6 +46,12 @@ public class CursoDaoImpl implements CursoDao {
 													"WHERE\n" + 
 													"	c.id_profesor = f.id;";
 		
+		
+		private final static String SQL_INSERTAR ="Insert into Profesores Values (?,'pepe','ronaldo');";
+
+		private final static String SQL_UPDATE= "Update profesores set=MD5(pasword)";
+
+		private int[] RETURN_GENERATE_KEYS;
 
 		public ArrayList <Cursos> listar() {
 			
@@ -78,7 +88,63 @@ public class CursoDaoImpl implements CursoDao {
 			
 			return cursos;
 		}
+		
+		
+		public void insertarProfesor (String nomb, String apellidos) throws Exception {
+			
+			long key = -1L;
+			
+			try 	( Connection con = ConnectionManager.getConnection() ;
+					 PreparedStatement pst = con.prepareStatement(SQL_INSERTAR,PreparedStatement.RETURN_GENERATED_KEYS)){
+						
+						pst.executeUpdate();
 
-	}
-
+					ResultSet rs = pst.getGeneratedKeys();
+					pst.setInt(1, (int) key);
+			        pst.setString(2, nomb);
+			        pst.setString(3, apellidos);
+			       
+			        pst.execute();
+			        rs = pst.getGeneratedKeys();
+					if (rs.next()) {
+					    key = rs.getInt(1);
+					}
+					
+			
+					
+				
 	
+	
+
+		}
+		}
+		
+		public void actualizarPasword (int pasw) throws Exception{
+			
+			try( Connection con = ConnectionManager.getConnection() ;
+					 PreparedStatement pst = con.prepareStatement(SQL_UPDATE)){
+						
+						pst.executeUpdate();
+
+					
+					pst.setInt(1, pasw);	
+			
+		}
+		
+		
+		}
+
+
+		@Override
+		public void InsertarProfesor(String nomb, String apellidos) throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+		@Override
+		public void ActualizarPasword(int pasw) throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+}

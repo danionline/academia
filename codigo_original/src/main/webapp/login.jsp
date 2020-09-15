@@ -9,26 +9,7 @@
 	
 		<label for="textlabel" class="col-sm-3 col-form-label">Contraseña</label>			
 		<input class="form-control" name="contrasena" type="text" placeholder="Contrasena"> 
-		<br>
-			
+		<br>	
 		<button type="submit" class="btn btn-success mb-2">Iniciar Sesion</button>
 	</form>	
 	
-
-
-
-
-
-
-<h1>Usuario Logeado</h1>
-
-${usuario }
-
-	
-
-	
-
-	
-
-
-
