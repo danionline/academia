@@ -16,12 +16,8 @@
         <header>
             <div id="header_title">
                 <div id="header_img">
-                    <img src="img/logo.png" alt="Maleta" title="Musix">
+                    <img src="img/home_hover.svg" title="Inicio">HOME
                 </div>
             </div>
         </header>
-        <nav id="menu_principal">
-            <ul>
-                <li><a href="index.jsp"><div class="icono home"></div>Inicio</a></li>
-            </ul>
-        </nav>
+     

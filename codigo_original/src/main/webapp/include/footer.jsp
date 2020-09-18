@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>        
+       </body>
         <footer>
             <div id="footer_social">
                 <p>¡Síguenos en nuestras redes sociales!</p>
@@ -26,5 +27,5 @@
             <p id="movil_version">Versión adaptada para móviles</p>
             <p id="copyright">&copy; 2020 by Elier Otero</p>
         </footer>
-    </body>
+   
 </html>

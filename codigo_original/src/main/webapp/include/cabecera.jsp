@@ -24,18 +24,19 @@
 
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/estilo.css">
 
  
  
   </head>
-  <body onload="init()" >
+  <header>
+  <body>
 
 
     <nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
         <!-- logo -->
-         <a class="navbar-brand" href="index.html">
+        
         
       
 
@@ -45,7 +46,7 @@
           
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp">Inicio</a>
+              <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp"><img src="img/home_hover.svg"></div>HOME</a>
             </li>
            </ul> 
             
@@ -53,9 +54,9 @@
                	
          <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'curso' eq param.pagina ) ? 'active' : '' }" href="curso.jsp">LISTADO DE CURSOS</a>
+              <a class="nav-link ${ ( 'curso' eq param.pagina ) ? 'active' : '' }" href="curso">LISTADO DE CURSOS</a>
             </li>
-          
+          </ul>
             
                
       
@@ -65,27 +66,22 @@
            	
        
                    	
-         
+         <ul>
+         	
          	<c:if test="${ empty sessionScope.usuario_sesion }">
             	  <a class="nav-link  btn btn-outline-warning" href="login.jsp">Iniciar Sesión</a>
             </c:if>	  
-           
+  		
+  		</ul>         
               
-
-        
-
-       
-     
-       
-         
-       
-       
-     	
+           
+      	
   </nav>
 
-    
+    </header>
       
-      <main role="main" class="container" style="margin-top:100px" >
+      
    			
-      	<jsp:include page="alerta.jsp"></jsp:include>
+      	
+
       

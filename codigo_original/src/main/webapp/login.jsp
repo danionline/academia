@@ -18,14 +18,16 @@
 
 	<form action="sesion" method="post">
 
-	
+	<div class=login>
 		<label for="textlabel"	class="col-sm-3 col-form-label">Nombre</label>			
 		<input class="form-control" name="nombre" type="text" placeholder="Nombre">
 	
 		<label for="textlabel" class="col-sm-3 col-form-label">Contraseña</label>			
 		<input class="form-control" name="contrasena" type="text" placeholder="Contrasena"> 
 		<br>	
-		<button type="submit" class="btn btn-success mb-2">Iniciar Sesion</button>
+		<button type="submit" class="btn btn-warning mb-2">Iniciar Sesion</button>
+	
+	</div>
 	</form>	
 
 ${mensaje}

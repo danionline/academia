@@ -12,13 +12,12 @@
 
 
 
-<h1>Sala de ALumnos</h1>
+<h1>Sala de Alumnos</h1>
 
 
 
 	 	<table class="table">
-		<h2>Usuario</h2>
-		<h4>${usuario_sesion.nombre}</h4>
+		<h2>Usuario</h2><h4>${usuario_sesion.nombre}</h4>
 		
 	 	
 <table class="tabla table table-striped">
@@ -43,8 +42,7 @@
 				</c:forEach>
 		</tbody>
 					
-			
-
+		
 			
 			
 				

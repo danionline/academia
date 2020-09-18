@@ -35,6 +35,9 @@ public class CursoController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+		
+		
 		ArrayList<Cursos> aCursos;
 		CursoDaoImpl dao = new CursoDaoImpl();
 		aCursos = dao.listar();

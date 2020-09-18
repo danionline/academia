@@ -1,4 +1,4 @@
-package academia.modelo.dao;
+	package academia.modelo.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 import academia.modelo.pojo.ConnectionManager;
 import academia.modelo.pojo.Cursos;
+import academia.modelo.pojo.Usuario;
 
 /**
  * @author dani
  *
  */
-public final class CursoDaoImpl {
+public final class CursoDaoImpl implements CursoDAO {
 
 	private static CursoDaoImpl INSTANCE = null;
 
@@ -100,5 +101,7 @@ public final class CursoDaoImpl {
 
 		return cursos;
 	}
+
+	
 
 }

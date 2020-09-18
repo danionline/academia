@@ -2,6 +2,7 @@ package academia.modelo.dao;
 
 import java.util.ArrayList;
 
+import academia.modelo.pojo.Cursos;
 import academia.modelo.pojo.Usuario;
 
 public interface UsuarioDAO {
@@ -30,6 +31,10 @@ public interface UsuarioDAO {
 	 *                 MD5
 	 * @return Usuario con datos si lo encuentra, si no existe retorna null
 	 */
-	public Usuario buscar(String nombre, String password);
-
+	 
+	Usuario buscar(String nombre, String password);
+	 
+	 ArrayList<Cursos> listarAlumnos(int id);
+	
+	 ArrayList<Cursos> listarProfesor(int id);
 }

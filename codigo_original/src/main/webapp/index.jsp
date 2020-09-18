@@ -10,12 +10,14 @@
 	<jsp:param name="title" value="Inicio" />
 </jsp:include>
 
-<H1> ACADEMIA</H1>
+									
 
 	
-
-
-
+<div class="contenedor">
+  <img src="img/ball.png">
+ <div class="texto">Academia 
+ Academicos</div>
+</div>
 
 
 
