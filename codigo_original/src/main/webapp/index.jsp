@@ -1,32 +1,23 @@
-<h1 align=center>Iniciar Session</h1>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-
-	<form action="sesion" method="post">
-
-	
-		<label for="textlabel"	class="col-sm-3 col-form-label">Nombre</label>			
-		<input class="form-control" name="nombre" type="text" placeholder="Nombre deL Corredor">
-	
-		<label for="textlabel" class="col-sm-3 col-form-label">Contraseña</label>			
-		<input class="form-control" name="contrasena" type="text" placeholder="Contrasena"> 
-		<br>
-			
-		<button type="submit" class="btn btn-success mb-2">Iniciar Sesion</button>
-	</form>	
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 
+<jsp:include page="include/cabecera.jsp">
+	<jsp:param name="pagina" value="inicio" />
+	<jsp:param name="title" value="Inicio" />
+</jsp:include>
 
-
-
-<h1>Usuario Logeado</h1>
-
-${usuario }
+<H1> ACADEMIA</H1>
 
 	
 
-	
+
+
+
+
 
 	
 

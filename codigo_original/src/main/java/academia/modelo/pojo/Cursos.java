@@ -6,18 +6,34 @@ public class Cursos {
 	private String nombre;
 	private String identificador;
 	private int horas;
-	private Profesores profesor;
+	private Usuario usuarios;
 
 	public Cursos() {
 		super();
 
 	}
 
+	
+
+	public Usuario getUsuarios() {
+		return usuarios;
+	}
+
+
+
+	public void setUsuarios(Usuario usuarios) {
+		this.usuarios = usuarios;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Cursos [id=" + id + ", nombre=" + nombre + ", identificador=" + identificador + ", horas=" + horas
-				+ ", profesor=" + profesor + "]";
+				+ ", usuarios=" + usuarios + "]";
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -51,13 +67,6 @@ public class Cursos {
 		this.horas = horas;
 	}
 
-	public Profesores getProfesor() {
-		return profesor;
-	}
-
-	public void setProfesor(Profesores profesor) {
-		this.profesor = profesor;
-	}
 
 	public Cursos(int id, String nombre, String identificador, int horas, Profesores profesor) {
 		super();
@@ -65,7 +74,7 @@ public class Cursos {
 		this.nombre = nombre;
 		this.identificador = identificador;
 		this.horas = horas;
-		this.profesor = profesor;
+		this.usuarios = usuarios;
 	}
 
 }

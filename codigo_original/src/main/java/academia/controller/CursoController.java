@@ -18,33 +18,30 @@ import academia.modelo.pojo.Cursos;
 @WebServlet("/curso")
 public class CursoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-	
-	
-	
-    public CursoController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList <Cursos> aCursos;
-		CursoDaoImpl dao = new CursoDaoImpl();
-		aCursos =dao.listar();
-		request.setAttribute("cursos", aCursos);
-		request.getRequestDispatcher("curso.jsp").forward(request, response);;
-		
-		
+
+	public CursoController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		ArrayList<Cursos> aCursos;
+		CursoDaoImpl dao = new CursoDaoImpl();
+		aCursos = dao.listar();
+
+		request.setAttribute("cursos", aCursos);
+		request.getRequestDispatcher("curso.jsp").forward(request, response);
+
+	}
 
 }

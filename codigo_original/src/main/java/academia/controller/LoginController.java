@@ -8,9 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import academia.modelo.dao.UsuarioDaoImpl;
+import academia.modelo.pojo.Cursos;
 import academia.modelo.pojo.Usuario;
 
 /**
@@ -19,72 +19,60 @@ import academia.modelo.pojo.Usuario;
 @WebServlet("/sesion")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public LoginController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UsuarioDaoImpl dao = UsuarioDaoImpl.getInstance();
-		ArrayList<Usuario> asuario = null;
-		asuario = dao.getAll();
-		Usuario usu = new Usuario();
-		String id = "";
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("contrasena");
+		UsuarioDaoImpl dao = new UsuarioDaoImpl();
+		Usuario usuario = new Usuario();
 
-		boolean usuariosi = false;
+		usuario = dao.buscar(nombre, password);
 
-		HttpSession sesion = request.getSession();
+		if (usuario == null) {
+			request.setAttribute("mensaje", "Credenciales incorrectas, prueba de nuevo por favor");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 
-		try {
+		} else if (usuario.getRol() == Usuario.ROL_PROFESOR) {
 
-			String nomb = request.getParameter("nombre");
-			String cons = request.getParameter("contrasena");
-			usu.setNombre(nomb);
-			usu.setContrasena(cons);
+			// LISTAR CURSOS DE PROFESORES
+			ArrayList<Cursos> cursos = new ArrayList<Cursos>();
+			cursos = dao.listarProfesor(usuario.getId());
+			// Crea el DAO de Cursos y obtento todos los cursos de ese profesor por su id
+			request.setAttribute("cursos", cursos);
+			request.getSession().setAttribute("usuario_sesion", usuario);
+			request.getRequestDispatcher("privado/profesor.jsp").forward(request, response);
 
-			for (Usuario usuario : asuario) {
-
-				if (usuario.getNombre().equalsIgnoreCase(nomb) & (usuario.getContrasena().equalsIgnoreCase(cons))) {
-
-					usuariosi = true;
-				}
-
-			}
-			if (usuariosi == false) {
-
-				sesion.invalidate();
-				request.setAttribute("usuario",usu);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-				
-			} else {
-				sesion.setMaxInactiveInterval(60 * 5);
-				
-
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-
-			}
-
-		} catch (Exception e) {
-
-			e.getMessage();
-			e.printStackTrace();
-
+		} else { /// LISTAR CURSOS DE ALUMNOS
+			ArrayList<Cursos> cursos = new ArrayList<Cursos>();
+			cursos = dao.listarAlumnos(usuario.getId());
+			request.setAttribute("cursos", cursos);
+			request.getSession().setAttribute("usuario_sesion", usuario);
+			request.getRequestDispatcher("privado/alumnos.jsp").forward(request, response);
 		}
+
 	}
 
 }
