@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 
 
@@ -24,17 +21,15 @@
 
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="estilo.css">
 
- 
  
   </head>
   <header>
   <body>
-
-
-    <nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
+  
+  <nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
         <!-- logo -->
         
         
@@ -44,33 +39,31 @@
       
         <!-- lista enlaces -->
           
-          <ul class="navbar-nav mr-auto">
+              <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
               <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp"><img src="img/home_hover.svg">HOME</a>
             </li>
            </ul> 
-            
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"  >
+              <a class="nav-link ${ ( 'profesor' eq param.pagina ) ? 'active' : '' }" href="profesor"><img src="img/home_hover.svg">HOME</a>
+            </li>
+           </ul>     
+              
                        
                	
-         <ul class="navbar-nav mr-auto">
-            <li class="nav-item"  >
-              <a class="nav-link ${ ( 'curso' eq param.pagina ) ? 'active' : '' }" href="curso">LISTADO DE CURSOS</a>
-            </li>
-          </ul>
+         
             
-            
+      
+           
+         
+      
+           
+           
 			
            	
        
-                   	
-         <ul>
-         	
-         	<c:if test="${ empty sessionScope.usuario_sesion }">
-            	  <a class="nav-link  btn btn-outline-warning" href="login.jsp">Iniciar Sesión</a>
-            </c:if>	  
-  		
-  		</ul>         
-              
+                  
            
       	
   </nav>
@@ -81,4 +74,19 @@
    			
       	
 
+  
+  
+  
+  
+  
+  
+  
+        
       
+
+       
+      
+        
+          
+         
+            

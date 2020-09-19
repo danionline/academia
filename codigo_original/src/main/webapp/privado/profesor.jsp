@@ -1,32 +1,28 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
-
-<jsp:include page="/privado/profesorcabecera.jsp">
+<jsp:include page="/include/cabecera.jsp">
 	<jsp:param name="pagina" value="inicio" />
 	<jsp:param name="title" value="Inicio" />
 </jsp:include>
 
+<br>
+<br>
 
 
-<h1>Sala de Profesores</h1>
-
-
-
-	 	<table class="table">
-		<h2>Usuario</h2><h4>${usuario_sesion.nombre}</h4>
-		
-	 	
-<table class="tabla table table-striped">
+	<table class="tabla table table-striped">
 		<thead>
+			
+	
+			
 			<tr>
 				<td>Id</td>
 				<td>Nombre</td>
 				<td>Horas</td>
 				<td>Identificador</td>
+				<td>Crear   Eliminar</td>
 				
 			</tr>
 		</thead>
@@ -38,12 +34,15 @@
 					<td>${c.nombre}</td>
 					<td>${c.horas}</td>
 					<td>${c.identificador}</td>
-				</tr>
+				
+					<td>
+						<a href="crear-curso.jsp" class="mr-3"><i class="fa fa-pencil-square fa-2x" style="color:black" title="Crear Producto"></i></a>
+		
+						<a href="producto-eliminar?id=${c.id}"	  onclick="confirmar('${c.identificador}')" >
+		
+						<i class="fas fa-trash fa-2x" style= "color:black" title="Eliminar Producto"></i></a>
+					</td>
+</tr>
 				</c:forEach>
 		</tbody>
-					
-			
-
-				
-			
-				
+						

@@ -1,30 +1,27 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
-
-<jsp:include page="/privado/profesorcabecera.jsp">
+<jsp:include page="/include/cabecera.jsp">
 	<jsp:param name="pagina" value="inicio" />
 	<jsp:param name="title" value="Inicio" />
 </jsp:include>
 
 
-
-<h1>Sala de Alumnos</h1>
-
-
-
-	 	<table class="table">
-		<h2>Usuario</h2><h4>${usuario_sesion.nombre}</h4>
-		
-	 	
-<table class="tabla table table-striped">
+      <br>
+      <br>
+          
+	
+	<table class="tabla table table-striped">
 		<thead>
+			
+	
+			
 			<tr>
 				<td>Id</td>
 				<td>Nombre</td>
+				
 				<td>Horas</td>
 				<td>Identificador</td>
 				
@@ -42,7 +39,20 @@
 				</c:forEach>
 		</tbody>
 					
+						       
+          
+         
+
+  
+  
+  
+  
+        
+      
+
+       
+      
+        
+          
+         
 		
-			
-			
-				

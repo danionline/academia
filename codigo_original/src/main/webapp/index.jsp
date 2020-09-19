@@ -14,7 +14,8 @@
 
 	
 <div class="contenedor">
-  <img src="img/ball.png">
+<span></span>
+  <img src="img/digitilogo.jpg">
  <div class="texto">Academia 
  Academicos</div>
 </div>

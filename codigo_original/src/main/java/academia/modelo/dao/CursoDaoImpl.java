@@ -19,7 +19,7 @@ public final class CursoDaoImpl implements CursoDAO {
 
 	private final static String SQL_LISTAR = "SELECT id, nombre, identificador, horas from cursos GROUP BY id;";
 
-	private final static String SQL_INSERTAR = "Insert into Profesores Values (?,'pepe','ronaldo');";
+	private final static String SQL_INSERTAR = "INSERT into cursos  values (20,'I021',25,11 ,12 ,'Javascript');;";
 
 	private final static String SQL_UPDATE = "Update profesores set=MD5(pasword)";
 

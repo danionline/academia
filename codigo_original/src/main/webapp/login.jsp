@@ -14,19 +14,30 @@
 
 
 <h1 align=center>Iniciar Session</h1>
+	
+<div class="contenedor">
+<span></span>
+  <img src="img/digitilogo.jpg">
+
+</div>
 
 
 	<form action="sesion" method="post">
 
 	<div class=login>
-		<label for="textlabel"	class="col-sm-3 col-form-label">Nombre</label>			
+		<div class =txt>
+		<br>
+		<label for="textlabel"	class="col-sm-3 col-form-texto">Nombre</label>	
+		
 		<input class="form-control" name="nombre" type="text" placeholder="Nombre">
 	
 		<label for="textlabel" class="col-sm-3 col-form-label">Contraseña</label>			
 		<input class="form-control" name="contrasena" type="text" placeholder="Contrasena"> 
-		<br>	
-		<button type="submit" class="btn btn-warning mb-2">Iniciar Sesion</button>
-	
+		<br>
+		<div class= boton>	
+		<button type="submit" class="btn btn-warning mb-3">Iniciar Sesion</button>
+		</div>
+	</div>
 	</div>
 	</form>	
 

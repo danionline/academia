@@ -22,13 +22,56 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-
+	<link rel="stylesheet" href="css/estilo.css">
 
  
   </head>
-  <body onload="init()" >
+  <header>
+  <body>
+  
+  <nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
+        <!-- logo -->
+        
+        
+      
 
+       
+      
+        <!-- lista enlaces -->
+          
+             
+              
+                       
+               	
+         
+            
+      
+           
+         
+      
+           
+           
+			
+           	
+       
+                  
+           
+      	
+  </nav>
 
+    </header>
+      
+      
+   			
+      	
+
+  
+  
+  
+  
+  
+  
+  
         
       
 
