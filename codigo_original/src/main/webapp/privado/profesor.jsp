@@ -36,11 +36,11 @@
 					<td>${c.identificador}</td>
 				
 					<td>
-						<a href="crear-curso.jsp" class="mr-3"><i class="fa fa-pencil-square fa-2x" style="color:black" title="Crear Producto"></i></a>
+						<a href="privado/crearcurso.jsp" class="mr-3"><i class="fa fa-pencil-square fa-2x" style="color:black" title="Crear Curso"></i></a>
 		
-						<a href="producto-eliminar?id=${c.id}"	  onclick="confirmar('${c.identificador}')" >
+						<a href="privado/cursoeliminar?id=${c.identificador}"	  onclick="confirmar('${c.identificador}')" >
 		
-						<i class="fas fa-trash fa-2x" style= "color:black" title="Eliminar Producto"></i></a>
+						<i class="fas fa-trash fa-2x" style= "color:black" title="Eliminar Curso"></i></a>
 					</td>
 </tr>
 				</c:forEach>

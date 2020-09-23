@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.SessionCookieConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.tagext.TryCatchFinally;
 
 import academia.modelo.dao.UsuarioDaoImpl;
 import academia.modelo.pojo.Cursos;
@@ -50,7 +53,12 @@ public class LoginController extends HttpServlet {
 		Usuario usuario = new Usuario();
 
 		usuario = dao.buscar(nombre, password);
-
+		HttpSession session = request.getSession();
+		
+		
+			
+		
+			
 		if (usuario == null) {
 			request.setAttribute("mensaje", "Credenciales incorrectas, prueba de nuevo por favor");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -58,21 +66,23 @@ public class LoginController extends HttpServlet {
 		} else if (usuario.getRol() == Usuario.ROL_PROFESOR) {
 
 			// LISTAR CURSOS DE PROFESORES
-			ArrayList<Cursos> cursos = new ArrayList<Cursos>();
+		/*	ArrayList<Cursos> cursos = new ArrayList<Cursos>();
 			cursos = dao.listarProfesor(usuario.getId());
 			// Crea el DAO de Cursos y obtento todos los cursos de ese profesor por su id
 			request.setAttribute("cursos", cursos);
-			request.getSession().setAttribute("usuario_sesion", usuario);
-			request.getRequestDispatcher("privado/profesor.jsp").forward(request, response);
+
+		*/	request.getSession().setAttribute("usuario_sesion", usuario);
+			response.sendRedirect(request.getContextPath()+"/privado/profesor");
+			//request.getRequestDispatcher("privado/profesor").forward(request, response);
 
 		} else { /// LISTAR CURSOS DE ALUMNOS
 			ArrayList<Cursos> cursos = new ArrayList<Cursos>();
 			cursos = dao.listarAlumnos(usuario.getId());
 			request.setAttribute("cursos", cursos);
 			request.getSession().setAttribute("usuario_sesion", usuario);
-			request.getRequestDispatcher("privado/alumnos.jsp").forward(request, response);
+			request.getRequestDispatcher("privado/alumnos").forward(request, response);
 		}
-
-	}
-
+		
+	}	
+		
 }

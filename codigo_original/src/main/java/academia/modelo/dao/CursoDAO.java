@@ -7,8 +7,8 @@ import academia.modelo.pojo.Cursos;
 public interface CursoDAO {
 
 	
-	ArrayList<Cursos> listar();
-	void insertarProfesor(String nomb, String apellidos) throws Exception;
+	ArrayList<Cursos> listar(int id);
+	void insertarCurso(String nomb,int horas, String identificador) throws Exception;
 	void actualizarPasword(int pasw) throws Exception;
 	
 }

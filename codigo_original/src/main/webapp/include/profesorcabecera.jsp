@@ -41,12 +41,12 @@
           
               <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp"><img src="img/home_hover.svg">HOME</a>
+              <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp"><img src="privado/img/home_hover.svg">HOME</a>
             </li>
            </ul> 
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'profesor' eq param.pagina ) ? 'active' : '' }" href="profesor"><img src="img/home_hover.svg">HOME</a>
+              <a class="nav-link ${ ( 'profesor' eq param.pagina ) ? 'active' : '' }" href="profesor"><img src="privado/img/home_hover.svg">Curso Profesor</a>
             </li>
            </ul>     
               
@@ -59,7 +59,13 @@
          
       
            
-           
+             <ul>
+         	
+         	<c:if test="${ empty sessionScope.usuario_sesion }">
+            	  <a class="nav-link  btn btn-outline-warning" href="login.jsp">Iniciar Sesión</a>
+            </c:if>	  
+  		
+  		</ul>   
 			
            	
        

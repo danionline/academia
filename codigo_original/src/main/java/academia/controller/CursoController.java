@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import academia.modelo.dao.CursoDaoImpl;
 import academia.modelo.pojo.Cursos;
+import academia.modelo.pojo.Usuario;
 
 /**
  * Servlet implementation class CursoController
@@ -40,6 +41,8 @@ public class CursoController extends HttpServlet {
 		
 		ArrayList<Cursos> aCursos;
 		CursoDaoImpl dao = new CursoDaoImpl();
+		
+		
 		aCursos = dao.listar();
 
 		request.setAttribute("cursos", aCursos);

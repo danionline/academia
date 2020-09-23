@@ -31,12 +31,10 @@
  
   </head>
   <header>
-  <body>
+  
 
 
-    <nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
-        <!-- logo -->
-        
+  
         
       
 
@@ -44,7 +42,27 @@
       
         <!-- lista enlaces -->
           
-          <ul class="navbar-nav mr-auto">
+        
+            
+             	
+           <!-- opciones cuando el usuario esta Logeado -->
+            
+                    
+          
+       
+        
+         <span class="form-inline">
+         
+         	 
+         	<c:if test="${ empty sessionScope.usuario_sesion }">
+         	
+         	 <li class="nav-item"> 
+         	 <nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
+         	 <a class="nav-link  btn btn-outline-warning" href="login.jsp">Iniciar Sesión</a>
+            	 <span class="badge badge-pill badge-light mr-3">${sessionScope.usuario_sesion.nombre}</span>
+            	
+			
+		  <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
               <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp"><img src="img/home_hover.svg">HOME</a>
             </li>
@@ -58,22 +76,51 @@
             </li>
           </ul>
             
-            
-			
-           	
-       
-                   	
-         <ul>
-         	
-         	<c:if test="${ empty sessionScope.usuario_sesion }">
-            	  <a class="nav-link  btn btn-outline-warning" href="login.jsp">Iniciar Sesión</a>
-            </c:if>	  
-  		
-  		</ul>         
-              
            
+           	 </c:if>	
+            	 
+            	 
+            	 
+            	 
+            	 
+        
+        </span>
+            
+            <c:if test="${ not empty sessionScope.usuario_sesion }">
+            	
+ 			
+ 			       <span class="form-inline">
+         	<nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
+         	
+ 			         
+         	 <ul class="navbar-nav mr-auto">
+         	
+            <li class="nav-item"  >
+              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="sesion">LISTADO DE PROFESORES</a>
+            </li>
+          </ul>
+   			<ul class="navbar-nav mr-auto">
+            <li class="nav-item"  >
+              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="sesion">LISTADO DE ALUMNOS</a>
+            </li>
+          </ul>  
+ 		
+              </c:if>	   
+        
+      
+
+       
+      
+        <!-- lista enlaces -->
+          
+               
+        
+
+    
+       
+
       	
-  </nav>
+
 
     </header>
       
