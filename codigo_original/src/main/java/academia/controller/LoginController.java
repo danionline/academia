@@ -76,11 +76,9 @@ public class LoginController extends HttpServlet {
 			//request.getRequestDispatcher("privado/profesor").forward(request, response);
 
 		} else { /// LISTAR CURSOS DE ALUMNOS
-			ArrayList<Cursos> cursos = new ArrayList<Cursos>();
-			cursos = dao.listarAlumnos(usuario.getId());
-			request.setAttribute("cursos", cursos);
+			
 			request.getSession().setAttribute("usuario_sesion", usuario);
-			request.getRequestDispatcher("privado/alumnos").forward(request, response);
+			response.sendRedirect(request.getContextPath()+"/privado/alumnos");
 		}
 		
 	}	

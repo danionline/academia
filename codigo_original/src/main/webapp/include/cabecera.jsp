@@ -64,7 +64,7 @@
 			
 		  <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp"><img src="img/home_hover.svg">HOME</a>
+              <a class="nav-link ${ ( 'inicio' eq param.pagina ) ? 'active' : '' }" href="index.jsp">home</a>
             </li>
            </ul> 
             
@@ -72,7 +72,7 @@
                	
          <ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'curso' eq param.pagina ) ? 'active' : '' }" href="curso">LISTADO DE CURSOS</a>
+              <a class="nav-link ${ ( 'curso' eq param.pagina ) ? 'active' : '' }" href="curso">listado de cursos</a>
             </li>
           </ul>
             
@@ -96,12 +96,12 @@
          	 <ul class="navbar-nav mr-auto">
          	
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="sesion">LISTADO DE PROFESORES</a>
+              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="profesor">listado del profesor</a>
             </li>
           </ul>
    			<ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="sesion">LISTADO DE ALUMNOS</a>
+              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="alumno">listado del alumno</a>
             </li>
           </ul>  
  		

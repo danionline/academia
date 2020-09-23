@@ -13,8 +13,6 @@
 
 
 
-<h1 align=center>Iniciar Session</h1>
-	
 <div class="contenedor">
 <span></span>
   <img src="img/digitilogo.jpg">

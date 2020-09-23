@@ -21,6 +21,9 @@ public final class CursoDaoImpl implements CursoDAO {
 
 	private final static String SQL_LISTARPROFESOR = "SELECT id, nombre, identificador, horas from cursos WHERE id_profesor=?;";
 
+	private final static String SQL_LISTARALUMNO = "SELECT id, nombre, identificador, horas from cursos WHERE  id_alumno=?;";
+
+	
 	private final static String SQL_INSERTAR = "INSERT into cursos  values (20,'I021',25,11 ,12 ,'Javascript');";
 
 	private final static String SQL_UPDATE = "Update profesores set=MD5(pasword)";
@@ -108,6 +111,40 @@ public final class CursoDaoImpl implements CursoDAO {
 		return cursos;
 	}
 
+	public ArrayList<Cursos> listarAlumno(int id_alumno) {
+
+		ArrayList<Cursos> cursos = new ArrayList<Cursos>();
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pst = con.prepareStatement(SQL_LISTARALUMNO);
+
+		) {
+
+			pst.setInt(1, id_alumno);
+			
+			try (ResultSet rs = pst.executeQuery()) {
+				while (rs.next()) {
+
+					Cursos c = new Cursos();
+					c.setId(rs.getInt("id"));
+					c.setNombre(rs.getString("nombre"));
+					c.setIdentificador(rs.getString("identificador"));
+					c.setHoras(rs.getInt("horas"));
+					cursos.add(c);
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return cursos;
+	}
+
+	
 	
 	
 
