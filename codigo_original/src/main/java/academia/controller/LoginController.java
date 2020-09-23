@@ -53,7 +53,7 @@ public class LoginController extends HttpServlet {
 		Usuario usuario = new Usuario();
 
 		usuario = dao.buscar(nombre, password);
-		HttpSession session = request.getSession();
+		
 		
 		
 			
@@ -63,7 +63,7 @@ public class LoginController extends HttpServlet {
 			request.setAttribute("mensaje", "Credenciales incorrectas, prueba de nuevo por favor");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 
-		} else if (usuario.getRol() == Usuario.ROL_PROFESOR) {
+		} else if (Usuario.getRolAlumno() != Usuario.ROL_PROFESOR) {
 
 			// LISTAR CURSOS DE PROFESORES
 		/*	ArrayList<Cursos> cursos = new ArrayList<Cursos>();

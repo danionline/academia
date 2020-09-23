@@ -36,8 +36,7 @@ public class CursoControllerAlumnos extends HttpServlet {
 		CursoDaoImpl dao = new CursoDaoImpl();
 		Usuario  usuario=  (Usuario)request.getSession().getAttribute("usuario_sesion");
 		
-		aCursos = dao.listarAlumno(usuario.getId());
-
+		aCursos = dao.listar(usuario.getId());
 		request.setAttribute("cursos", aCursos);
 		request.getRequestDispatcher("/privado/alumnos.jsp").forward(request, response);
 

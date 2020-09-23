@@ -7,7 +7,19 @@ public class Usuario {
 	private int id;
 	private String nombre;
 	private String contrasena;
+	private String apellido;
 	private int rol;
+	
+
+	
+	public Usuario(int id, String nombre, String contrasena, String apellido, int rol) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.contrasena = contrasena;
+		this.apellido = apellido;
+		this.rol = rol;
+	}
 
 	public int getRol() {
 		return rol;
@@ -17,12 +29,28 @@ public class Usuario {
 		this.rol = rol;
 	}
 
+	public Usuario(int id, String nombre, String contrasena, String apellido) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.contrasena = contrasena;
+		this.apellido = apellido;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
 	public Usuario() {
 		super();
 		this.id = 0;
 		this.nombre = "";
 		this.contrasena = "";
-		this.rol = 0;
+		
 	}
 
 	public int getId() {
@@ -54,7 +82,7 @@ public class Usuario {
 		this.id = id;
 		this.nombre = nombre;
 		this.contrasena = contrasena;
-		this.rol = rol;
+		
 	}
 
 	public static int getRolProfesor() {
@@ -67,7 +95,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", rol=" + rol + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", apellido=" + apellido
+				+ ", rol=" + rol + "]";
 	}
 
 }
