@@ -80,13 +80,53 @@
            	 </c:if>	
             	 
             	 
-            	 
+        
+
+    <!-- Grid row-->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-12 py-1">
+        <div class="mb- flex-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+ 	 
             	 
             	 
         
         </span>
             
-            <c:if test="${ not empty sessionScope.usuario_sesion }">
+            <c:if test="${ not empty sessionScope.usuario_sesion and usuario_sesion.rol==2}">
             	
  			
  			       <span class="form-inline">
@@ -96,12 +136,25 @@
          	 <ul class="navbar-nav mr-auto">
          	
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="profesor">listado del profesor</a>
+              <a class="nav-link ${ ( 'cursosprofesor' eq param.pagina ) ? 'active' : '' }" href="profesor">listado del profesor</a>
             </li>
           </ul>
+          </nav></span>
+          
+              </c:if>	 
+          
+          <c:if test="${ not empty sessionScope.usuario_sesion and usuario_sesion.rol==1}">
+          
+                 <span class="form-inline">
+         	<nav class="navbar navbar-expand-md  fixed-top bg-primary bg-dark">
+         	
+ 			         
+         	 <ul class="navbar-nav mr-auto">
+          
+          
    			<ul class="navbar-nav mr-auto">
             <li class="nav-item"  >
-              <a class="nav-link ${ ( 'cursos' eq param.pagina ) ? 'active' : '' }" href="alumno">listado del alumno</a>
+              <a class="nav-link ${ ( 'cursosalumno' eq param.pagina ) ? 'active' : '' }" href="alumnos">listado del alumno</a>
             </li>
           </ul>  
  		

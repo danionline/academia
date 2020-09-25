@@ -24,17 +24,20 @@
 				
 				<td>Horas</td>
 				<td>Identificador</td>
+				<td>Profesor</td>
+			
 				
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${cursos}" var="c">
+			<c:forEach items="${cursosalumno}" var="c">
 				<tr>
 				
 					<td>${c.id}</td> <% // no hace falta usar el getter p.id == p.getId() %>
 					<td>${c.nombre}</td>
 					<td>${c.horas}</td>
 					<td>${c.identificador}</td>
+					<td>${c.usuario.nombre}${c.usuario.apellido}</td>					
 				</tr>
 				</c:forEach>
 		</tbody>
@@ -53,6 +56,6 @@
        
       
         
-          
+ <jsp:include page="/include/pie.jsp"/>         
          
 		

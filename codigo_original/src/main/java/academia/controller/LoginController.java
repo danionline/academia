@@ -63,7 +63,7 @@ public class LoginController extends HttpServlet {
 			request.setAttribute("mensaje", "Credenciales incorrectas, prueba de nuevo por favor");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 
-		} else if (Usuario.getRolAlumno() != Usuario.ROL_PROFESOR) {
+		} else if ( usuario.getRol()==2) {
 
 			// LISTAR CURSOS DE PROFESORES
 		/*	ArrayList<Cursos> cursos = new ArrayList<Cursos>();
@@ -75,11 +75,12 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+"/privado/profesor");
 			//request.getRequestDispatcher("privado/profesor").forward(request, response);
 
-		} else { /// LISTAR CURSOS DE ALUMNOS
+		}else { /// LISTAR CURSOS DE ALUMNOS
 			
 			request.getSession().setAttribute("usuario_sesion", usuario);
 			response.sendRedirect(request.getContextPath()+"/privado/alumnos");
-		}
+			
+			}
 		
 	}	
 		

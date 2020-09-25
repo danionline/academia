@@ -32,15 +32,15 @@ public class CursoControllerProfesor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Cursos> aCursos;
+		ArrayList<Cursos> pCursos;
 		CursoDaoImpl dao = new CursoDaoImpl();
 		
 	
 		Usuario  usuario=  (Usuario)request.getSession().getAttribute("usuario_sesion");
 		
-		aCursos = dao.listar(usuario.getId());
+		pCursos = dao.listar(usuario.getId());
 
-		request.setAttribute("cursos", aCursos);
+		request.setAttribute("cursosprofesor", pCursos);
 		request.getRequestDispatcher("/privado/profesor.jsp").forward(request, response);
 	}
 
@@ -48,15 +48,7 @@ public class CursoControllerProfesor extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Cursos> aCursos;
-		CursoDaoImpl dao = new CursoDaoImpl();
-		Usuario  usuario=  (Usuario)request.getSession().getAttribute("usuario_sesion");
 		
-		aCursos = dao.listar(usuario.getId());
-
-		request.setAttribute("cursos", aCursos);
-		request.getRequestDispatcher("/privado/profesor.jsp").forward(request, response);
-
 	}
 
 }

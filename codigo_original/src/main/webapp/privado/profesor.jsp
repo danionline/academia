@@ -27,7 +27,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${cursos}" var="c">
+			<c:forEach items="${cursosprofesor}" var="c">
 				<tr>
 				
 					<td>${c.id}</td> <% // no hace falta usar el getter p.id == p.getId() %>
@@ -45,4 +45,7 @@
 </tr>
 				</c:forEach>
 		</tbody>
+		
+		
+		<jsp:include page="/include/pie.jsp"/>
 						

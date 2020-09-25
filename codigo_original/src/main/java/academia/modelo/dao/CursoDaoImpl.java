@@ -21,8 +21,9 @@ public final class CursoDaoImpl implements CursoDAO {
 
 	private final static String SQL_LISTARPROFESOR = "SELECT id, nombre, identificador, horas from cursos WHERE id_profesor=?;";
 
-	private final static String SQL_LISTARALUMNO = "SELECT id, c.nombre, u.nombre ,u.apellidos ,identificador, horas from cursos as c,usuarios as u WHERE c.id_alumno = u.id_usuarios LIMIT 200;";
+	private final static String SQL_LISTARALUMNO = "SELECT c.id, c.nombre, u.nombre , u.apellidos, c.identificador, c.horas from cursos as c,usuarios as u WHERE c.id_alumno = u.id_usuarios and c.id_alumno=? LIMIT 200;";
 
+	private final static String SQL_LISTARALMO ="SELECT id, nombre, identificador, horas from cursos WHERE id_alumno=?;";
 	
 	
 	
@@ -113,7 +114,7 @@ public final class CursoDaoImpl implements CursoDAO {
 		return cursos;
 	}
 
-	public ArrayList<Cursos> listarAlumno() {
+	public ArrayList<Cursos> listarAlumno(int id_alumno) {
 
 		ArrayList<Cursos> cursos = new ArrayList<Cursos>();
 
@@ -125,8 +126,7 @@ public final class CursoDaoImpl implements CursoDAO {
 
 		) {
 
-			
-			
+			pst.setInt(1, id_alumno);
 			try (ResultSet rs = pst.executeQuery()) {
 				while (rs.next()) {
 
@@ -136,12 +136,18 @@ public final class CursoDaoImpl implements CursoDAO {
 					c.setIdentificador(rs.getString("identificador"));
 					c.setHoras(rs.getInt("horas"));
 					
-					cursos.add(c);
 					Usuario u= new Usuario();
 					u.setNombre(rs.getString("nombre"));
 					u.setApellido(rs.getString("apellidos"));
+					
+					
 					c.setUsuarios(u);
-
+					cursos.add(c);
+						
+						
+									
+					
+					cursos.add(c);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

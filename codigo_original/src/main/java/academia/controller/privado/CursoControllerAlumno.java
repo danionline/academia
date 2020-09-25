@@ -16,14 +16,14 @@ import academia.modelo.pojo.Usuario;
 /**
  * Servlet implementation class CursoControllerProfesor
  */
-@WebServlet("/privado/alumno")
-public class CursoControllerAlumnos extends HttpServlet {
+@WebServlet("/privado/alumnos")
+public class CursoControllerAlumno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CursoControllerAlumnos() {
+    public CursoControllerAlumno() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,11 +34,12 @@ public class CursoControllerAlumnos extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Cursos> aCursos;
 		CursoDaoImpl dao = new CursoDaoImpl();
+		
 		Usuario  usuario=  (Usuario)request.getSession().getAttribute("usuario_sesion");
 		
-		aCursos = dao.listar(usuario.getId());
-		request.setAttribute("cursos", aCursos);
-		request.getRequestDispatcher("/privado/alumnos.jsp").forward(request, response);
+		aCursos = dao.listarAlumno(usuario.getId());
+		request.setAttribute("cursosalumno", aCursos);
+		request.getRequestDispatcher("/privado/alumno.jsp").forward(request, response);
 
 	}
 
